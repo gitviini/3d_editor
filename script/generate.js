@@ -2,6 +2,7 @@ const display = document.querySelector('.display')
 const container_cube = document.querySelector('.container-cube')
 const cubes = document.querySelectorAll('.cube')
 const add = document.querySelector('#add')
+const del = document.querySelector('#delete')
 const theme = document.querySelector('#theme')
 let cube = ''
 const model_faces = '<div class="face front"></div>\
@@ -113,4 +114,11 @@ add.onclick = () =>{
     }
     cube = new_cube
     container_cube.appendChild(new_cube)
+}
+
+del.onclick = () =>{
+    if(cube){
+        container_cube.removeChild(cube)
+        cuber = ''
+    }
 }

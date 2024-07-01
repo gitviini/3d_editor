@@ -31,7 +31,7 @@ h2 {
     bottom: 30px;
 }
 
-.setting{
+.setting, .actions{
     position: absolute;
     display: flex;
     flex-flow: column;
@@ -41,6 +41,12 @@ h2 {
     left: 0;
     padding: 10px;
     gap: 5px;
+}
+
+.actions{
+    flex-flow: row;
+    top: initial;
+    bottom: 0;
 }
 
 form {
@@ -175,16 +181,4 @@ button{
 
 button:hover{
     filter: brightness(80%);
-}
-
-#theme{
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-#add{
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
 }
