@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/script/generate.js" defer></script>
+</head>
+
+<body>
+    <button id="theme">theme</button>
+    <button id="add">adicionar cubo</button>
+    <div class="setting">
+        <form action="" id="resize">
+            <input type="text" placeholder='x (px)' required value="10">
+            <input type="text" placeholder='y (px)' required value="10">
+            <input type="text" placeholder='z (px)' required value="10">
+            <button>redimencionar</button>
+        </form>
+        <form action="" id="posicionar">
+            <input type="text" placeholder='x (px)' required value="0">
+            <input type="text" placeholder='y (px)' required value="0">
+            <input type="text" placeholder='z (px)' required value="0">
+            <button>posicionar</button>
+        </form>
+        <form action="" id="colorir">
+            <input type="text" placeholder='color (#fff)' required value="#234">
+            <button>colorir</button>
+        </form>
+    </div>
+    <div class="display">
+        <div class="face front"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face bottom"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+
+        <div class="container-cube">
+            
+        </div>
+    </div>
+</body>
+
+</html>

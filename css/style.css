@@ -1,0 +1,179 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: 0.2s;
+  --width-cube: 10px;
+  --width-display: 50px;
+  transform-style: preserve-3d;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+body.click {
+  cursor: crosshair;
+}
+
+h2 {
+  position: fixed;
+  bottom: 30px;
+}
+
+.setting {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  gap: 5px;
+}
+
+form {
+  width: auto;
+}
+
+.container-cube {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.display {
+  pointer-events: none;
+  scale: 3;
+  width: var(--width-display);
+  height: var(--width-display);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(15deg) rotateX(-15deg);
+}
+.display .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3333333333);
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0);
+}
+.display .front {
+  transform: translateZ(calc(var(--width-display) / 2));
+}
+.display .right {
+  transform: rotateY(90deg) translateZ(calc(var(--width-display) / 2));
+}
+.display .back {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+  filter: brightness(80%);
+  transform: rotateY(180deg) translateZ(calc(var(--width-display) / 2));
+}
+.display .left {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+  filter: brightness(80%);
+  transform: rotateY(-90deg) translateZ(calc(var(--width-display) / 2));
+}
+.display .top {
+  transform: rotateX(90deg) translateZ(calc(var(--width-display) / 2));
+}
+.display .bottom {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+  filter: brightness(60%);
+  transform: rotateY(180deg) rotateX(90deg) translateZ(calc(-1 * var(--width-display) / 2));
+}
+
+.cube {
+  pointer-events: all;
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+}
+.cube .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+  color: #fff;
+  box-sizing: border-box;
+  background-color: #635985;
+  border: none;
+}
+.cube .front {
+  transform: translateZ(calc(var(--width-cube) / 2));
+}
+.cube .right {
+  transform: rotateY(90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.cube .back {
+  filter: brightness(70%);
+  transform: rotateY(180deg) translateZ(calc(var(--width-cube) / 2));
+}
+.cube .left {
+  filter: brightness(70%);
+  transform: rotateY(-90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.cube .top {
+  transform: rotateX(90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.cube .bottom {
+  filter: brightness(50%);
+  direction: rtl;
+  transform: rotateY(180deg) rotateX(90deg) translateZ(calc(-1 * var(--width-cube) / 2));
+}
+
+input,
+button {
+  padding: 5px;
+  border: 1px solid #234;
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(80%);
+}
+
+#theme {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+#add {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}/*# sourceMappingURL=style.css.map */
