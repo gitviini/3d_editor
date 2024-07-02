@@ -15,7 +15,9 @@ const model_faces = '<div class="face front"></div>\
 const resize = document.querySelector('#resize')
 const posicionar = document.querySelector('#posicionar')
 const colorir = document.querySelector('#colorir')
+const filter = document.querySelector('#filter')
 
+//Configurações
 resize.onsubmit = (e) => {
     e.preventDefault()
 
@@ -77,6 +79,40 @@ colorir.onsubmit = (e) =>{
     }
 }
 
+filter.onsubmit = (e) =>{
+    e.preventDefault()
+
+    if(cube){
+        let filter_content = filter.children[0].value
+
+        for(face of cube.children){
+            face.style.filter = filter_content
+        }
+    }
+}
+
+//Ações
+add.onclick = () =>{
+    console.log('oi')
+    let new_cube = document.createElement('div')
+    new_cube.setAttribute('class','cube')
+    new_cube.innerHTML = model_faces
+    new_cube.onclick = () =>{
+        cube = new_cube
+    }
+    cube = new_cube
+    container_cube.appendChild(new_cube)
+}
+
+del.onclick = () =>{
+    if(cube){
+        container_cube.removeChild(cube)
+        cuber = ''
+
+
+    }
+}
+
 let press = false
 
 let degX = 15
@@ -104,21 +140,5 @@ window.onkeydown = (e) => {
     }
 }
 
-add.onclick = () =>{
-    console.log('oi')
-    let new_cube = document.createElement('div')
-    new_cube.setAttribute('class','cube')
-    new_cube.innerHTML = model_faces
-    new_cube.onclick = () =>{
-        cube = new_cube
-    }
-    cube = new_cube
-    container_cube.appendChild(new_cube)
-}
 
-del.onclick = () =>{
-    if(cube){
-        container_cube.removeChild(cube)
-        cuber = ''
-    }
-}
+'<div class="cube" style="min-width: 50px; min-height: 5px; transform: translateX(0px) translateY(-20px) translateZ(0px);"><div class="face front" style="background: rgb(115, 48, 11); width: 50px; transform: translateZ(25px); height: 5px;"></div>                <div class="face right" style="background: rgb(115, 48, 11); height: 5px; transform: rotateY(90deg) translateZ(25px); width: 50px;"></div>                <div class="face left" style="background: rgb(115, 48, 11); height: 5px; transform: rotateY(-90deg) translateZ(25px); width: 50px;"></div>                <div class="face bottom" style="background: rgb(115, 48, 11); width: 50px; height: 50px; transform: rotateY(180deg) rotateX(90deg) translateZ(-2.5px);"></div>                <div class="face back" style="background: rgb(115, 48, 11); width: 50px; transform: rotateY(180deg) translateZ(25px); height: 5px;"></div>                <div class="face top" style="background: rgb(115, 48, 11); width: 50px; height: 50px; transform: rotateX(90deg) translateZ(2.5px);"></div></div><div class="cube" style="min-width: 40px; min-height: 2.5px; transform: translateX(0px) translateY(-23.75px) translateZ(0px);"><div class="face front" style="background: rgb(221, 221, 221); width: 40px; transform: translateZ(20px); height: 2.5px;"></div>                <div class="face right" style="background: rgb(221, 221, 221); height: 2.5px; transform: rotateY(90deg) translateZ(20px); width: 40px;"></div>                <div class="face left" style="background: rgb(221, 221, 221); height: 2.5px; transform: rotateY(-90deg) translateZ(20px); width: 40px;"></div>                <div class="face bottom" style="background: rgb(221, 221, 221); width: 40px; height: 40px; transform: rotateY(180deg) rotateX(90deg) translateZ(-1.25px);"></div>                <div class="face back" style="background: rgb(221, 221, 221); width: 40px; transform: rotateY(180deg) translateZ(20px); height: 2.5px;"></div>                <div class="face top" style="background: rgb(221, 221, 221); width: 40px; height: 40px; transform: rotateX(90deg) translateZ(1.25px);"></div></div><div class="cube" style="transform: translateX(20px) translateY(2.5px) translateZ(20px); min-width: 10px; min-height: 42.5px;"><div class="face front" style="background: rgb(115, 48, 11); width: 10px; transform: translateZ(5px); height: 42.5px;"></div>                <div class="face right" style="background: rgb(115, 48, 11); height: 42.5px; transform: rotateY(90deg) translateZ(5px); width: 10px;"></div>                <div class="face left" style="background: rgb(115, 48, 11); height: 42.5px; transform: rotateY(-90deg) translateZ(5px); width: 10px;"></div>                <div class="face bottom" style="background: rgb(115, 48, 11); width: 10px; height: 10px; transform: rotateY(180deg) rotateX(90deg) translateZ(-21.25px);"></div>                <div class="face back" style="background: rgb(115, 48, 11); width: 10px; transform: rotateY(180deg) translateZ(5px); height: 42.5px;"></div>                <div class="face top" style="background: rgb(115, 48, 11); width: 10px; height: 10px; transform: rotateX(90deg) translateZ(21.25px);"></div></div><div class="cube" style="min-width: 10px; min-height: 42.5px; transform: translateX(20px) translateY(2.5px) translateZ(-20px);"><div class="face front" style="background: rgb(115, 48, 11); width: 10px; transform: translateZ(5px); height: 42.5px;"></div>                <div class="face right" style="background: rgb(115, 48, 11); height: 42.5px; transform: rotateY(90deg) translateZ(5px); width: 10px;"></div>                <div class="face left" style="background: rgb(115, 48, 11); height: 42.5px; transform: rotateY(-90deg) translateZ(5px); width: 10px;"></div>                <div class="face bottom" style="background: rgb(115, 48, 11); width: 10px; height: 10px; transform: rotateY(180deg) rotateX(90deg) translateZ(-21.25px);"></div>                <div class="face back" style="background: rgb(115, 48, 11); width: 10px; transform: rotateY(180deg) translateZ(5px); height: 42.5px;"></div>                <div class="face top" style="background: rgb(115, 48, 11); width: 10px; height: 10px; transform: rotateX(90deg) translateZ(21.25px);"></div></div><div class="cube" style="transform: translateX(-20px) translateY(2.5px) translateZ(-20px); min-width: 10px; min-height: 42.5px;"><div class="face front" style="width: 10px; transform: translateZ(5px); height: 42.5px; background: rgb(115, 48, 11);"></div>                <div class="face right" style="height: 42.5px; transform: rotateY(90deg) translateZ(5px); width: 10px; background: rgb(115, 48, 11);"></div>                <div class="face left" style="height: 42.5px; transform: rotateY(-90deg) translateZ(5px); width: 10px; background: rgb(115, 48, 11);"></div>                <div class="face bottom" style="width: 10px; height: 10px; transform: rotateY(180deg) rotateX(90deg) translateZ(-21.25px); background: rgb(115, 48, 11);"></div>                <div class="face back" style="width: 10px; transform: rotateY(180deg) translateZ(5px); height: 42.5px; background: rgb(115, 48, 11);"></div>                <div class="face top" style="width: 10px; height: 10px; transform: rotateX(90deg) translateZ(21.25px); background: rgb(115, 48, 11);"></div></div><div class="cube" style="min-width: 10px; min-height: 42.5px; transform: translateX(-20px) translateY(2.5px) translateZ(20px);"><div class="face front" style="width: 10px; transform: translateZ(5px); height: 42.5px; background: rgb(115, 48, 11);"></div>                <div class="face right" style="height: 42.5px; transform: rotateY(90deg) translateZ(5px); width: 10px; background: rgb(115, 48, 11);"></div>                <div class="face left" style="height: 42.5px; transform: rotateY(-90deg) translateZ(5px); width: 10px; background: rgb(115, 48, 11);"></div>                <div class="face bottom" style="width: 10px; height: 10px; transform: rotateY(180deg) rotateX(90deg) translateZ(-21.25px); background: rgb(115, 48, 11);"></div>                <div class="face back" style="width: 10px; transform: rotateY(180deg) translateZ(5px); height: 42.5px; background: rgb(115, 48, 11);"></div>                <div class="face top" style="width: 10px; height: 10px; transform: rotateX(90deg) translateZ(21.25px); background: rgb(115, 48, 11);"></div></div></div>'

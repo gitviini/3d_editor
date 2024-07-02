@@ -14,7 +14,8 @@
         <button id="delete">deletar cubo</button>
         <button id="add">adicionar cubo</button>
     </div>
-    <div class="setting">
+    <details class="setting">
+        <summary>Configurações</summary>
         <form action="" id="resize">
             <input type="text" placeholder='x (px)' required value="10">
             <input type="text" placeholder='y (px)' required value="10">
@@ -31,7 +32,11 @@
             <input type="text" placeholder='color (#fff)' required value="#234">
             <button>colorir</button>
         </form>
-    </div>
+        <form action="" id="filter">
+            <input type="text" placeholder='filter (%)' required value="drop-shadow(0 0 10px #fff)">
+            <button>adicionar filtro</button>
+        </form>
+    </details>
     <div class="display">
         <div class="face front"></div>
         <div class="face right"></div>
