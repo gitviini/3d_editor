@@ -8,6 +8,17 @@
   transform-style: preserve-3d;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+}
 html,
 body {
   width: 100%;
@@ -31,8 +42,8 @@ h2 {
   bottom: 30px;
 }
 
-.setting, .actions {
-  position: absolute;
+.setting, .actions, .models {
+  position: fixed;
   height: auto;
   display: flex;
   flex-flow: column;
@@ -42,22 +53,73 @@ h2 {
   left: 0;
   padding: 10px;
   gap: 5px;
+  box-sizing: border-box;
+  z-index: 3;
 }
-.setting form, .actions form {
+.setting form, .actions form, .models form {
   margin-top: 5px;
 }
 
+.models {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  left: auto;
+  top: 0;
+  right: 0;
+}
+.models .model {
+  width: auto;
+  height: 60px;
+  animation: rotate 10s linear;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+.models .model .container-cube {
+  width: auto;
+  height: auto;
+}
+.models .model:hover {
+  animation: none;
+}
+
 .actions {
-  flex-flow: row;
+  width: 100%;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   top: initial;
   bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.actions .buttons {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.actions .inputs {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  box-sizing: border-box;
 }
 
 form {
   width: auto;
 }
 
-.container-cube {
+.container-cube, .model {
   display: flex;
   width: 100%;
   height: 100%;
@@ -77,18 +139,26 @@ form {
   align-items: center;
   transform: rotateY(15deg) rotateX(-15deg);
 }
-.display .face {
+.display .preview {
+  pointer-events: none;
   position: absolute;
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2px;
   width: 100%;
   height: 100%;
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3333333333);
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0);
+  color: rgba(0, 0, 0, 0);
+  font-size: 5px;
+}
+.display .preview.click {
+  background-color: rgba(0, 0, 0, 0.1333333333);
+  color: rgba(0, 0, 0, 0.6);
 }
 .display .front {
   transform: translateZ(calc(var(--width-display) / 2));
@@ -172,6 +242,16 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover, button.click {
   filter: brightness(80%);
+}
+
+summary {
+  cursor: pointer;
+  background-color: rgba(119, 136, 153, 0.9333333333);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #234;
+  width: auto;
 }/*# sourceMappingURL=style.css.map */

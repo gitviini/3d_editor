@@ -11,9 +11,23 @@
 
 <body>
     <div class="actions">
-        <button id="delete">deletar cubo</button>
-        <button id="add">adicionar cubo</button>
+        <details class="inputs">
+            <summary>Importar modelo</summary>
+            <form action="" id="model">
+                <input type="text" placeholder="modelo (html)" required>
+                <button>carregar</button>
+            </form>
+        </details>
+        <hr width="100%">
+        <div class="buttons">
+            <button id="delete">deletar cubo</button>
+            <button id="add">adicionar cubo</button>
+            <button id="move">mover cubo</button>
+        </div>
     </div>
+    <details class="models">
+        <summary>Modelos</summary>
+    </details>
     <details class="setting">
         <summary>Configurações</summary>
         <form action="" id="resize">
@@ -38,12 +52,12 @@
         </form>
     </details>
     <div class="display">
-        <div class="face front"></div>
-        <div class="face right"></div>
-        <div class="face left"></div>
-        <div class="face bottom"></div>
-        <div class="face back"></div>
-        <div class="face top"></div>
+        <div class="face front preview">front</div>
+        <div class="face right preview">right</div>
+        <div class="face left preview">left</div>
+        <div class="face bottom preview">bottom</div>
+        <div class="face back preview">back</div>
+        <div class="face top preview">top</div>
 
         <div class="container-cube">
             
