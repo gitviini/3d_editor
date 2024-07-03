@@ -21,5 +21,3 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 * Adicionar bloco;
 * Deletar bloco;
 * Mover preview (quado ativo mostra nome das face).
-
-<video src="./img/flor_video.mp4" autoplay width="100%" height="100%"></video>
