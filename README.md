@@ -9,7 +9,9 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 ### Features
 #### CONFIGURAÇÕES
 * Selecionar bloco ao clicar;
-* Mover blocos.
+* Mover blocos;
+* Determinar cor;
+* Determinar filtro (drop-shadow() e etc).
 #### AÇÕES
 * Importar modelo pelo html;
 * Adicionar bloco;
