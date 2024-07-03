@@ -38,6 +38,7 @@ h2 {
 }
 
 .setting, .actions, .models{
+    pointer-events: none;
     position: fixed;
     height: auto;
     display: flex;
@@ -67,6 +68,7 @@ h2 {
     right: 0;
 
     .model{
+        pointer-events: all;
         width: auto;
         height: 60px;
         animation: rotate 10s linear;
@@ -94,12 +96,15 @@ h2 {
     white-space: nowrap;
 
     .buttons{
-        width: 100%; 
+        width: 100%;
         display: flex;
         flex-flow: row; 
         justify-content: flex-start;
         align-items: center;
-        gap: 5px;
+        gap: 5px 5px;
+        form{
+            margin: 0;
+        }
     }
     .inputs{
         width: 100%; 
@@ -113,8 +118,13 @@ h2 {
     }
 }
 
-form {
+form{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
     width: auto;
+    gap: 5px;
 }
 
 .container-cube, .model{
@@ -136,6 +146,7 @@ form {
     justify-content: center;
     align-items: center;
     transform: rotateY(15deg) rotateX(-15deg);
+    z-index: 2;
     .preview{
         pointer-events: none;
         position: absolute;
@@ -198,6 +209,7 @@ form {
     align-items: center;
     width: var(--width-cube);
     height: var(--width-cube);
+    cursor: pointer;
     .face {
         position: absolute;
         display: flex;
@@ -243,6 +255,7 @@ form {
 }
 input,
 button {
+    pointer-events: all;
     padding: 5px;
     border: 1px solid #234;
     border-radius: 10px;
@@ -258,6 +271,7 @@ button:hover, button.click{
 
 summary{
     cursor: pointer;
+    pointer-events: all;
     background-color: #789e;
     color: #fff;
     padding: 10px;

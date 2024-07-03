@@ -1,18 +1,5 @@
-const display = document.querySelector('.display')
-const preview = document.querySelectorAll('.preview')
-const container_cube = document.querySelector('.container-cube')
-const cubes = document.querySelectorAll('.cube')
-const models = document.querySelector('.models')
-const add = document.querySelector('#add')
-const del = document.querySelector('#delete')
-const move = document.querySelector('#move')
-let cube = ''
-const model_faces = '<div class="face front"></div><div class="face right"></div><div class="face left"></div><div class="face bottom"></div><div class="face back"></div><div class="face top"></div>'
-const resize = document.querySelector('#resize')
-const posicionar = document.querySelector('#posicionar')
-const colorir = document.querySelector('#colorir')
-const filter = document.querySelector('#filter')
-const model = document.querySelector('#model')
+//Previne menu de contexto
+window.oncontextmenu = (e) => e.preventDefault()
 
 //Configurações
 resize.onsubmit = (e) => {
@@ -66,7 +53,25 @@ posicionar.onsubmit = (e) => {
         cube.setAttribute('y',y)
         cube.setAttribute('z',z)
         
-        cube.style.transform = `translateX(${x}px) translateY(${y}px) translateZ(${z}px)`
+        cube.style.transform = `translateX(${x}px) translateY(${y}px) translateZ(${z}px) rotateX(${cube.getAttribute('rotateX')}deg) rotateY(${cube.getAttribute('rotateY')}deg) rotateZ(${cube.getAttribute('rotateZ')}deg)`
+    }
+}
+
+rotacionar.onsubmit = (e) => {
+    e.preventDefault()
+
+    if(cube){
+
+        let x = Number(rotacionar.children[0].value)
+        let y = Number(rotacionar.children[1].value)
+        let z = Number(rotacionar.children[2].value)
+
+        cube.setAttribute('rotateX',x)
+        cube.setAttribute('rotateY',y)
+        cube.setAttribute('rotateZ',z)
+        
+        cube.style.transform = `rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)\
+        translateX(${cube.getAttribute('x')}px) translateY(${cube.getAttribute('y')}px) translateZ(${cube.getAttribute('z')}px)`
     }
 }
 
@@ -95,6 +100,22 @@ filter.onsubmit = (e) =>{
     }
 }
 
+//Copiar
+copy.onsubmit = (e) =>{
+    e.preventDefault()
+    //prompt('Copie o conteúdo',`${container_cube.innerHTML}`)
+    '<div class="cube" width="10" height="30" length="10" x="0" y="10" z="0" rotatex="0" rotatey="0" rotatez="0" color="#4caf50" filter="drop-shadow(0 0 10px #fff)" style="transform: translateX(0px) translateY(10px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); min-width: 10px; min-height: 30px;"><div class="face front" style="background: rgb(76, 175, 80); width: 10px; transform: translateZ(5px); height: 30px;"></div><div class="face right" style="background: rgb(76, 175, 80); height: 30px; transform: rotateY(90deg) translateZ(5px); width: 10px;"></div><div class="face left" style="background: rgb(76, 175, 80); height: 30px; transform: rotateY(-90deg) translateZ(5px); width: 10px;"></div><div class="face bottom" style="background: rgb(76, 175, 80); width: 10px; height: 10px; transform: rotateY(180deg) rotateX(90deg) translateZ(-15px);"></div><div class="face back" style="background: rgb(76, 175, 80); width: 10px; transform: rotateY(180deg) translateZ(5px); height: 30px;"></div...0 10px #fff)" style="transform: translateX(0px) translateY(-7.5px) translateZ(2.5px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); min-width: 10px; min-height: 5px;"><div class="face front" style="width: 10px; transform: translateZ(2.5px); height: 5px; background: rgb(76, 175, 80);"></div><div class="face right" style="height: 5px; transform: rotateY(90deg) translateZ(5px); width: 5px; background: rgb(76, 175, 80);"></div><div class="face left" style="height: 5px; transform: rotateY(-90deg) translateZ(5px); width: 5px; background: rgb(76, 175, 80);"></div><div class="face bottom" style="width: 10px; height: 5px; transform: rotateY(180deg) rotateX(90deg) translateZ(-2.5px); background: rgb(76, 175, 80);"></div><div class="face back" style="width: 10px; transform: rotateY(180deg) translateZ(2.5px); height: 5px; background: rgb(76, 175, 80);"></div><div class="face top" style="width: 10px; height: 5px; transform: rotateX(90deg) translateZ(2.5px); background: rgb(76, 175, 80);"></div></div>'
+
+    let name = copy.children[0].value
+
+    if(name.indexOf(' ') == -1){
+        download(container_cube.innerHTML,name,'.txt')
+    }
+    else{
+        alert('Adicione um nome ao modelo para copiar')
+    }
+}
+
 //Ações
 add.onclick = () =>{
     let new_cube = document.createElement('div')
@@ -106,6 +127,9 @@ add.onclick = () =>{
     new_cube.setAttribute('x',0)
     new_cube.setAttribute('y',0)
     new_cube.setAttribute('z',0)
+    new_cube.setAttribute('rotateX',0)
+    new_cube.setAttribute('rotateY',0)
+    new_cube.setAttribute('rotateZ',0)
     new_cube.setAttribute('color','')
     new_cube.setAttribute('filter','drop-shadow(0 0 10px #fff)')
     new_cube.onclick = () =>{
@@ -136,23 +160,32 @@ model.onsubmit = (e) =>{
         let new_model_click = document.createElement('div')
         new_model_click.setAttribute('class','model')
         new_model_click.innerHTML = new_model
-        new_model_click.onclick = () =>{
-            container_cube.innerHTML = new_model
-            for(new_cube of container_cube.children){
-                /*
-                new_cube.setAttribute('width',10)
-                new_cube.setAttribute('height',10)
-                new_cube.setAttribute('length',10)
-                new_cube.setAttribute('x',0)
-                new_cube.setAttribute('y',0)
-                new_cube.setAttribute('z',0)
-                new_cube.setAttribute('color','')
-                new_cube.setAttribute('filter','')
-                */
-                new_cube.onclick = () =>{
-                    cube = new_cube
-                    change()
+        new_model_click.onmousedown = (e) =>{
+            if(e.button == 0){
+
+                container_cube.innerHTML = new_model
+                for(let n = 0; n < container_cube.children.length; n++){
+                    let new_cube = container_cube.children[n]
+                    /*
+                    new_cube.setAttribute('width',10)
+                    new_cube.setAttribute('height',10)
+                    new_cube.setAttribute('length',10)
+                    new_cube.setAttribute('x',0)
+                    new_cube.setAttribute('y',0)
+                    new_cube.setAttribute('z',0)
+                    new_cube.setAttribute('color','')
+                    new_cube.setAttribute('filter','')
+                    */
+                    console.log(new_cube)
+                    new_cube.onclick = () =>{
+                        console.log(new_cube)
+                        cube = new_cube
+                        change()
+                    }
                 }
+            }
+            else if(e.button == 2){
+                models.removeChild(new_model_click)
             }
         }
 
@@ -163,56 +196,6 @@ model.onsubmit = (e) =>{
     }
 }
 
-let press = false
-
-let degX = 15
-let degY = 15
-
-move.onclick = () => {
-    press = !press
-    move.classList.toggle('click') 
-
-    if(!press){
-        for(face of preview){
-            face.classList.remove('click')
-        }
-    }
-    else{
-        degree(degX,degY)
-        display.style.transform = `rotateY(${degX}deg) rotateX(${degY * -1}deg)`
-    }
-}
-
-window.onkeydown = (e) => {
-    if(press){
-
-        if(e.key == 'ArrowUp'){
-            degY += 15
-        }
-        else if(e.key == 'ArrowDown'){
-            degY += -15
-        }
-        else if(e.key == 'ArrowRight'){
-            degX += 15
-        }
-        else if(e.key == 'ArrowLeft'){
-            degX += -15
-        }
-
-        if(degX > 315 || degX < -315){
-            degX = 0
-        }
-    
-        if(degY > 135 || degY < -135){
-            degY = 0
-        }
-
-        console.log(`${degX} | ${degY}`)
-
-        degree(degX,degY)
-    }
-}
-
 function change(){
     resize.children[0].value = cube.getAttribute('width')
     resize.children[1].value = cube.getAttribute('height')
@@ -220,50 +203,33 @@ function change(){
     posicionar.children[0].value = cube.getAttribute('x')
     posicionar.children[1].value = cube.getAttribute('y')
     posicionar.children[2].value = cube.getAttribute('z')
+    rotacionar.children[0].value = cube.getAttribute('rotateX')
+    rotacionar.children[1].value = cube.getAttribute('rotateY')
+    rotacionar.children[2].value = cube.getAttribute('rotateZ')
     colorir.children[0].value = cube.getAttribute('color')
     filter.children[0].value = cube.getAttribute('filter')
 }
 
-function degree(degX=0,degY=0){
-
-    if(degX <= 45 && degX >= -45 && degY <= 45 && degY >= -45){
-        display.children[0].classList.add('click')
+function download(data, filename, type) {
+    const file = new Blob([data], {type: type});
+    
+    if (window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(file, filename);
+        return
     }
-    else{
-        display.children[0].classList.remove('click')
-    }
-    if(degX <= -45 && degX >= -135 && degY <= 45 && degY >= -45  || degX <= 315 && degX >= 225 && degY <= 45 && degY >= -45){
-        display.children[1].classList.add('click')
-    }
-    else{
-        display.children[1].classList.remove('click')
-    }
-    if(degX <= -135 && degX >= -225 && degY <= 45 && degY >= -45 || degX <= 225 && degX >= 135 && degY <= 45 && degY >= -45){
-        display.children[4].classList.add('click')
-    }
-    else{
-        display.children[4].classList.remove('click')
-    }
-    if(degX <= -225 && degX >= -315 && degY <= 45 && degY >= -45 || degX <= 135 && degX >= 45 && degY <= 45 && degY >= -45){
-        display.children[2].classList.add('click')
-    }
-    else{
-        display.children[2].classList.remove('click')
-    }
-
-    if(degY <= 135 && degY >= 45){
-        display.children[5].classList.add('click')
-    }
-    else{
-        display.children[5].classList.remove('click')
-    }
-
-    if(degY <= -45 && degY >= -135){
-        display.children[3].classList.add('click')
-    }
-    else{
-        display.children[3].classList.remove('click')
-    }
-
-    display.style.transform = `rotateY(${degX}deg) rotateX(${degY * -1}deg)`
+    
+    const a = document.createElement("a");
+    const url = URL.createObjectURL(file);
+        
+    a.href = url;
+    a.download = filename;
+    
+    document.body.appendChild(a);
+    
+    a.click();
+    
+    setTimeout(function() {
+       document.body.removeChild(a);
+       window.URL.revokeObjectURL(url);  
+    },0); 
 }

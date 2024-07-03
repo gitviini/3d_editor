@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/script/querys.js" defer></script>
+    <script src="/script/3d_move.js" defer></script>
     <script src="/script/generate.js" defer></script>
 </head>
 
@@ -23,6 +25,10 @@
             <button id="delete">deletar cubo</button>
             <button id="add">adicionar cubo</button>
             <button id="move">mover cubo</button>
+            <form action="" id="copy">
+                <input type="text" id="name" placeholder="nome do modelo">
+                <button>copiar modelo</button>
+            </form>
         </div>
     </div>
     <details class="models">
@@ -41,6 +47,12 @@
             <input type="text" placeholder='y (px)' required value="0">
             <input type="text" placeholder='z (px)' required value="0">
             <button>posicionar</button>
+        </form>
+        <form action="" id="rotacionar">
+            <input type="text" placeholder='x (deg)' required value="0">
+            <input type="text" placeholder='y (deg)' required value="0">
+            <input type="text" placeholder='z (deg)' required value="0">
+            <button>rotacionar</button>
         </form>
         <form action="" id="colorir">
             <input type="text" placeholder='color (#fff)' required value="#234">

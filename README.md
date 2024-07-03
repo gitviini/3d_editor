@@ -10,10 +10,14 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 #### CONFIGURAÇÕES
 * Selecionar bloco ao clicar;
 * Mover blocos;
+* Rotacionar blocos;
 * Determinar cor;
 * Determinar filtro (drop-shadow() e etc).
 #### AÇÕES
 * Importar modelo pelo html;
+* Adicionar modelo com botão esquerdo do mouse;
+* Deletar modelo com botão direito do mouse;
+* Salvar/copiar modelo como arquivo (.txt);
 * Adicionar bloco;
 * Deletar bloco;
-* Mover.
+* Mover preview (quado ativo mostra nome das face).
