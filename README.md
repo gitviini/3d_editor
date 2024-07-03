@@ -4,7 +4,7 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 
 	Projeto feito com JS para a criação e edição de modelos 3d, a partir de cubos.
 
-<img width='100%' src='./image.png'>
+<img width='100%' src='./img/image.png'>
 
 ### Features
 #### CONFIGURAÇÕES
@@ -21,3 +21,5 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 * Adicionar bloco;
 * Deletar bloco;
 * Mover preview (quado ativo mostra nome das face).
+
+<video src="./img/flor_video.mp4" autoplay width="100%" height="100%"></video>
