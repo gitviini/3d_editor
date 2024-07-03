@@ -7,11 +7,11 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 <img width='100%' src='./image.png'>
 
 ### Features
-//CONFIGURAÇÕES
-* Selecionar bloco ao clicar
-* Mover blocos
-//AÇÕES
-* Importar modelo pelo html
-* Adicionar bloco
-* Deletar bloco
-* Mover
+#### CONFIGURAÇÕES
+* Selecionar bloco ao clicar;
+* Mover blocos.
+#### AÇÕES
+* Importar modelo pelo html;
+* Adicionar bloco;
+* Deletar bloco;
+* Mover.
