@@ -1,8 +1,9 @@
 # 3D EDITOR
 
-by: [@v.ii.n.i](https://github.com/v.ii.n.i)
+by: [@v.ii.n.i](https://instagram.com/v.ii.n.i)
 
 	Projeto feito com JS para a criação e edição de modelos 3d, a partir de cubos.
+	Quer testar? Agora está disponível no github pages [3d_editor : https://gitviini.github.io/3d_editor](https://gitviini.github.io/3d_editor)
 
 <img width='100%' src='./img/image.png'>
 
@@ -20,4 +21,4 @@ by: [@v.ii.n.i](https://github.com/v.ii.n.i)
 * Salvar/copiar modelo como arquivo (.txt);
 * Adicionar bloco;
 * Deletar bloco;
-* Mover preview (quado ativo mostra nome das face).
+* Mover preview (quando ativo mostra nome das faces).
