@@ -3,7 +3,8 @@
 by: [@v.ii.n.i](https://instagram.com/v.ii.n.i)
 
 	Projeto feito com JS para a criação e edição de modelos 3d, a partir de cubos.
-	Quer testar? Agora está disponível no github pages [3d_editor : https://gitviini.github.io/3d_editor](https://gitviini.github.io/3d_editor)
+	Quer testar? Agora está disponível no github pages
+	[3d_editor : https://gitviini.github.io/3d_editor](https://gitviini.github.io/3d_editor)
 
 <img width='100%' src='./img/image.png'>
 
