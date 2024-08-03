@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/script/querys.js" defer></script>
-    <script src="/script/3d_move.js" defer></script>
-    <script src="/script/generate.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./script/request.js" defer></script>
+    <script src="./script/querys.js" defer></script>
+    <script src="./script/3d_move.js" defer></script>
+    <script src="./script/generate.js" defer></script>
 </head>
 
 <body>
@@ -25,14 +26,19 @@
             <button id="delete">deletar cubo</button>
             <button id="add">adicionar cubo</button>
             <button id="move">mover cubo</button>
-            <form action="" id="copy">
-                <input type="text" id="name" placeholder="nome do modelo">
-                <button>copiar modelo</button>
+            <form action="" id="content">
+                <input type="text" id="name" placeholder="nome do modelo" required>
+                <button id="copy">copiar modelo</button>
+                <button id="save">salvar</button>
             </form>
         </div>
     </div>
-    <details class="models">
+    <details class="container_models">
         <summary>Modelos</summary>
+        <button id="change_models">carregar</button>
+        <div class="models">
+
+        </div>
     </details>
     <details class="setting">
         <summary>Configurações</summary>
