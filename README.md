@@ -23,3 +23,13 @@ by: [@v.ii.n.i](https://instagram.com/v.ii.n.i)
 * Adicionar bloco;
 * Deletar bloco;
 * Mover preview (quando ativo mostra nome das faces).
+
+#### Banco de dados (MariaDB)
+COMANDOS:
+* create database game;
+* use game;
+* create table models(
+	name VARCHAR(20) PRIMARY KEY NOT NULL,
+	content TEXT NOT NULL
+);
+* pronto 😎
