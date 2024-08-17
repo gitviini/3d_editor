@@ -76,7 +76,7 @@ details[open] {
 
 .container_models {
   display: flex;
-  width: auto;
+  width: 100%;
   max-width: 150px;
   height: calc(100% - 120px);
   flex-flow: column;
