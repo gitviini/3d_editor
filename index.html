@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>game</title>
+    <title>3d editor</title>
     <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cube.css">
     <script src="./script/request.js" defer></script>
     <script src="./script/querys.js" defer></script>
     <script src="./script/3d_move.js" defer></script>
@@ -24,50 +26,57 @@
         </details>
         <hr width="100%">
         <div class="buttons">
-            <button id="delete">deletar cubo</button>
-            <button id="add">adicionar cubo</button>
-            <button id="move">mover cubo</button>
+            <button id="delete"><i class="bi bi-x-square"></i> <span>deletar cubo</span></button>
+            <button id="add"><i class="bi bi-plus-square"></i> <span>adicionar cubo</span></button>
+            <button id="move"><i class="bi bi-code-square"></i> <span>mover cubo</span></button>
             <form action="" id="content">
                 <input type="text" id="name" placeholder="nome do modelo" required>
-                <button id="copy">copiar modelo</button>
-                <button id="save">salvar</button>
+                <button id="copy">
+                    <i class="bi bi-copy"></i>
+                </button>
+                <button id="save">
+                    <i class="bi bi-floppy"></i>
+                </button>
+                <button id="del">
+                    <i class="bi bi-trash"></i>
+                </button>
             </form>
         </div>
     </div>
     <details class="container_models">
         <summary>Modelos</summary>
-        <button id="change_models">carregar</button>
+        <button id="change_models"><i class="bi bi-boxes"></i> <span>carregar</span></button>
         <div class="models">
 
         </div>
     </details>
     <details class="setting">
-        <summary>Configurações</summary>
+        <summary><i class="bi bi-gear"></i> Configurações</summary>
         <form action="" id="resize">
             <input type="text" placeholder='x (px)' required value="10">
             <input type="text" placeholder='y (px)' required value="10">
             <input type="text" placeholder='z (px)' required value="10">
-            <button>redimencionar</button>
+            <button><i class="bi bi-arrows-angle-contract"></i> <span>redimencionar</span></button>
         </form>
         <form action="" id="posicionar">
             <input type="text" placeholder='x (px)' required value="0">
             <input type="text" placeholder='y (px)' required value="0">
             <input type="text" placeholder='z (px)' required value="0">
-            <button>posicionar</button>
+            <button><i class="bi bi-arrows-move"></i> <span>posicionar</span></button>
         </form>
         <form action="" id="rotacionar">
             <input type="text" placeholder='x (deg)' required value="0">
             <input type="text" placeholder='y (deg)' required value="0">
             <input type="text" placeholder='z (deg)' required value="0">
-            <button>rotacionar</button>
+            <button><i class="bi bi-arrow-clockwise"></i> <span>rotacionar</span></button>
         </form>
         <form action="" id="colorir">
             <input type="text" placeholder='color (#fff)' required value="#234">
-            <button>colorir</button>
+            <button><i class="bi bi-palette"></i> <span>colorir</span></button>
         </form>
         <form action="" id="filter">
             <input type="text" placeholder='filter (%)' required value="drop-shadow(0 0 10px #fff)">
-            <button>adicionar filtro</button>
+            <button><i class="bi bi-funnel"></i> <span>adicionar filtro</span></button>
         </form>
     </details>
     <div class="display">
