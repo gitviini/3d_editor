@@ -147,11 +147,12 @@ details[open]{
 .move_buttons{
     scale: 0;
     position: fixed;
-    bottom: 120px;
+    bottom: 130px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 5px;
+    z-index: 5;
     .arrow{
         display: flex;
         flex-flow: column;
