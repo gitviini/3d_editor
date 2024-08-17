@@ -71,7 +71,7 @@ details[open] {
   overflow: hidden auto;
 }
 .setting form, .actions form, .container_models form {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .container_models {
@@ -86,9 +86,10 @@ details[open] {
   top: 0;
   right: 0;
   overflow: hidden;
+  z-index: 2;
 }
 .container_models button {
-  margin: 5px 0;
+  margin: 10px 0;
   width: 100%;
 }
 .container_models .models {
@@ -170,7 +171,7 @@ form {
   justify-content: flex-start;
   align-items: center;
   width: auto;
-  gap: 5px;
+  gap: 10px;
 }
 
 input,
@@ -222,5 +223,16 @@ summary {
   }
   .move_buttons.show {
     scale: 1;
+  }
+  button {
+    background-color: var(--button-input);
+    cursor: pointer;
+    box-shadow: 0px 3px 0 var(--border);
+    translate: 0 -3px;
+  }
+  button.click, button:active {
+    filter: brightness(80%);
+    translate: 0 0;
+    box-shadow: 0px 0px 0 var(--border);
   }
 }/*# sourceMappingURL=style.css.map */

@@ -14,6 +14,7 @@ const right = document.querySelector('#right')
 const content = document.querySelector('#content')
 const copy = document.querySelector('#copy')
 const save = document.querySelector('#save')
+const del_model = document.querySelector('#del_model')
 const change_models = document.querySelector('#change_models')
 let cube = ''
 const model_faces = '<div class="face front"></div><div class="face right"></div><div class="face left"></div><div class="face bottom"></div><div class="face back"></div><div class="face top"></div>'

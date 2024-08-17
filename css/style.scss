@@ -65,7 +65,7 @@ details[open]{
     z-index: 3;
     overflow: hidden auto;
     form{
-        margin-top: 8px;
+        margin-top: 10px;
     }
 }
 
@@ -81,9 +81,9 @@ details[open]{
     top: 0;
     right: 0;
     overflow: hidden;
-
+    z-index: 2;
     button{
-        margin: 5px 0;
+        margin: 10px 0;
         width: 100%;
     }
 
@@ -166,7 +166,7 @@ form{
     justify-content: flex-start;
     align-items: center;
     width: auto;
-    gap: 5px;
+    gap: 10px;
 }
 
 input,
@@ -221,6 +221,18 @@ summary{
     .move_buttons{
         &.show{
             scale: 1;
+        }
+    }
+
+    button{
+        background-color: var(--button-input);
+        cursor: pointer;
+        box-shadow: 0px 3px 0 var(--border);
+        translate: 0 -3px;
+        &.click,&:active{
+            filter: brightness(80%);
+            translate: 0 0;
+            box-shadow: 0px 0px 0 var(--border);
         }
     }
 }

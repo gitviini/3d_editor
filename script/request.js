@@ -1,3 +1,15 @@
+async function get_models(){
+    let form = new FormData()
+
+    form.append('mode','get_models')
+
+    return fetch('/script.php',{
+        method:'POST',
+        body:form,
+    })
+}
+
+
 async function send_model(name='',content=''){
     let form = new FormData()
 
@@ -18,13 +30,22 @@ async function send_model(name='',content=''){
     })
 }
 
-async function get_models(){
+async function delete_model(name=''){
     let form = new FormData()
 
-    form.append('mode','get_models')
+    form.append('mode','delete_model')
+    form.append('name',name)
 
-    return fetch('/script.php',{
+    fetch('/script.php',{
         method:'POST',
         body:form,
+    }).then(e=>{
+        console.log(e)
+        e.json().then(
+            res=>{
+                console.log(res)
+                res['res'] == true ? alert(`Modelo ${name} deletado com sucesso`) : alert(`Erro ao salvar modelo ${name}`)
+            }
+        )
     })
 }

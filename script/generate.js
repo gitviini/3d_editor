@@ -137,18 +137,6 @@ del.onclick = () => {
     }
 }
 
-copy.onclick = () => {
-    let name = content.children[0].value
-    if (name) {
-        if (name.indexOf(' ') == -1) {
-            download(container_cube.innerHTML, name, '.txt')
-        }
-        else {
-            alert('Adicione um nome ao modelo para copiar')
-        }
-    }
-}
-
 //Importando
 
 change_models.onclick = () => {
@@ -183,11 +171,31 @@ model.onsubmit = (e) => {
 }
 
 //Exportando
+copy.onclick = () => {
+    let name = content.children[0].value
+    if (name) {
+        if (name.indexOf(' ') == -1) {
+            download(container_cube.innerHTML, name, '.txt')
+        }
+        else {
+            alert('Adicione um nome ao modelo para copiar')
+        }
+    }
+}
+
 save.onclick = () => {
     let name = content.children[0].value
     if (name) {
         let content = container_cube.innerHTML
         send_model(name, content)
+        change_models.click()
+    }
+}
+
+del_model.onclick = () => {
+    let name = content.children[0].value
+    if (name) {
+        delete_model(name)
         change_models.click()
     }
 }

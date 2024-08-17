@@ -16,40 +16,6 @@
 </head>
 
 <body>
-    <div class="actions">
-        <details class="inputs">
-            <summary>Importar modelo</summary>
-            <form action="" id="model">
-                <input type="text" placeholder="modelo (html)" required>
-                <button>carregar</button>
-            </form>
-        </details>
-        <hr width="100%">
-        <div class="buttons">
-            <button id="delete"><i class="bi bi-x-square"></i> <span>deletar cubo</span></button>
-            <button id="add"><i class="bi bi-plus-square"></i> <span>adicionar cubo</span></button>
-            <button id="move"><i class="bi bi-code-square"></i> <span>mover cubo</span></button>
-            <form action="" id="content">
-                <input type="text" id="name" placeholder="nome do modelo" required>
-                <button id="copy">
-                    <i class="bi bi-copy"></i>
-                </button>
-                <button id="save">
-                    <i class="bi bi-floppy"></i>
-                </button>
-                <button id="del">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-    <details class="container_models">
-        <summary>Modelos</summary>
-        <button id="change_models"><i class="bi bi-boxes"></i> <span>carregar</span></button>
-        <div class="models">
-
-        </div>
-    </details>
     <details class="setting">
         <summary><i class="bi bi-gear"></i> Configurações</summary>
         <form action="" id="resize">
@@ -79,6 +45,41 @@
             <button><i class="bi bi-funnel"></i> <span>adicionar filtro</span></button>
         </form>
     </details>
+    <div class="actions">
+        <details class="inputs">
+            <summary>Importar modelo</summary>
+            <form action="" id="model">
+                <input type="text" placeholder="modelo (html)" required>
+                <button>carregar</button>
+            </form>
+        </details>
+        <hr width="100%">
+        <div class="buttons">
+            <button id="delete"><i class="bi bi-x-square"></i> <span>deletar cubo</span></button>
+            <button id="add"><i class="bi bi-plus-square"></i> <span>adicionar cubo</span></button>
+            <button id="move"><i class="bi bi-code-square"></i> <span>mover cubo</span></button>
+            <form action="" id="content">
+                <input type="text" id="name" placeholder="nome do modelo" required>
+                <button id="copy">
+                    <i class="bi bi-copy"></i>
+                </button>
+                <button id="save">
+                    <i class="bi bi-floppy"></i>
+                </button>
+                <button id="del_model">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <details class="container_models">
+        <summary>Modelos</summary>
+        <button id="change_models"><i class="bi bi-boxes"></i> <span>carregar</span></button>
+        <div class="models">
+
+        </div>
+    </details>
+    
     <div class="move_buttons">
         <div></div>
         <button class="arrow" id="up"><i class="bi bi-caret-up-fill"></i></button>
