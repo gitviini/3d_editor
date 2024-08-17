@@ -46,6 +46,8 @@ body {
   --yellow: #FFDA76;
   --button-input: #B4D6CD;
   --border: #000;
+  --face-border: #0003;
+  --color-preview: #0008;
   --scroll: #234;
   --bg: #fff;
   overflow: hidden;
