@@ -4,8 +4,29 @@ let press = false
 let degX = 15
 let degY = 15
 
+up.onclick = () =>{
+    degY += 15
+    degree(degX,degY)
+}
+
+down.onclick = () =>{
+    degY -= 15
+    degree(degX,degY)
+}
+
+right.onclick = () =>{
+    degX += -15
+    degree(degX,degY)
+}
+
+left.onclick = () =>{
+    degX += 15
+    degree(degX,degY)
+}
+
 move.onclick = () => {
     press = !press
+    move_buttons.classList.toggle('show')
     move.classList.toggle('click') 
 
     if(!press){
@@ -35,60 +56,60 @@ window.onkeydown = (e) => {
             degX += 15
         }
 
-        if(degX > 315 || degX < -315){
-            degX = 0
-        }
-    
-        if(degY > 135 || degY < -135){
-            degY = 0
-        }
-
         console.log(`${degX} | ${degY}`)
 
         degree(degX,degY)
     }
 }
 
-function degree(degX=0,degY=0){
+function degree(degX_=0,degY_=0){
 
-    if(degX <= 45 && degX >= -45 && degY <= 45 && degY >= -45){
+    if(degX_ > 315 || degX_ < -315){
+        degX = degX_ = 0
+    }
+
+    if(degY_ > 135 || degY_ < -135){
+        degY = degY_ = 0
+    }
+
+    if(degX_ <= 45 && degX_ >= -45 && degY_ <= 45 && degY_ >= -45){
         display.children[0].classList.add('click')
     }
     else{
         display.children[0].classList.remove('click')
     }
-    if(degX <= -45 && degX >= -135 && degY <= 45 && degY >= -45  || degX <= 315 && degX >= 225 && degY <= 45 && degY >= -45){
+    if(degX_ <= -45 && degX_ >= -135 && degY_ <= 45 && degY_ >= -45  || degX_ <= 315 && degX_ >= 225 && degY_ <= 45 && degY_ >= -45){
         display.children[1].classList.add('click')
     }
     else{
         display.children[1].classList.remove('click')
     }
-    if(degX <= -135 && degX >= -225 && degY <= 45 && degY >= -45 || degX <= 225 && degX >= 135 && degY <= 45 && degY >= -45){
+    if(degX_ <= -135 && degX_ >= -225 && degY_ <= 45 && degY_ >= -45 || degX_ <= 225 && degX_ >= 135 && degY_ <= 45 && degY_ >= -45){
         display.children[4].classList.add('click')
     }
     else{
         display.children[4].classList.remove('click')
     }
-    if(degX <= -225 && degX >= -315 && degY <= 45 && degY >= -45 || degX <= 135 && degX >= 45 && degY <= 45 && degY >= -45){
+    if(degX_ <= -225 && degX_ >= -315 && degY_ <= 45 && degY_ >= -45 || degX_ <= 135 && degX_ >= 45 && degY_ <= 45 && degY_ >= -45){
         display.children[2].classList.add('click')
     }
     else{
         display.children[2].classList.remove('click')
     }
 
-    if(degY <= 135 && degY >= 45){
+    if(degY_ <= 135 && degY_ >= 45){
         display.children[5].classList.add('click')
     }
     else{
         display.children[5].classList.remove('click')
     }
 
-    if(degY <= -45 && degY >= -135){
+    if(degY_ <= -45 && degY_ >= -135){
         display.children[3].classList.add('click')
     }
     else{
         display.children[3].classList.remove('click')
     }
 
-    display.style.transform = `rotateY(${degX}deg) rotateX(${degY * -1}deg)`
+    display.style.transform = `rotateY(${degX_}deg) rotateX(${degY_ * -1}deg)`
 }

@@ -148,6 +148,22 @@ details[open] {
   box-sizing: border-box;
 }
 
+.move_buttons {
+  scale: 0;
+  position: fixed;
+  bottom: 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+}
+.move_buttons .arrow {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
 form {
   display: flex;
   flex-flow: row;
@@ -203,5 +219,8 @@ summary {
 @media screen and (max-width: 670px) {
   span {
     display: none;
+  }
+  .move_buttons.show {
+    scale: 1;
   }
 }/*# sourceMappingURL=style.css.map */
