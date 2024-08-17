@@ -189,16 +189,6 @@ button{
     cursor: pointer;
     box-shadow: 0px 3px 0 var(--border);
     translate: 0 -3px;
-    &:hover{
-        filter: brightness(80%);
-        translate: 0 -2px;
-        box-shadow: 0px 2px 0 var(--border);
-    }
-    &.click,&:active{
-        filter: brightness(80%);
-        translate: 0 0;
-        box-shadow: 0px 0px 0 var(--border);
-    }
 }
 
 summary{
@@ -213,6 +203,21 @@ summary{
     color: #000;
 }
 
+@media screen and (min-width: 670px) {
+    button{
+        &:hover{
+            filter: brightness(90%);
+            translate: 0 -2px;
+            box-shadow: 0px 2px 0 var(--border);
+        }
+        &.click,&:active{
+            filter: brightness(80%);
+            translate: 0 0;
+            box-shadow: 0px 0px 0 var(--border);
+        }
+    }
+}
+
 @media screen and (max-width:670px){
 
     span{
@@ -224,12 +229,7 @@ summary{
             scale: 1;
         }
     }
-
     button{
-        background-color: var(--button-input);
-        cursor: pointer;
-        box-shadow: 0px 3px 0 var(--border);
-        translate: 0 -3px;
         &.click,&:active{
             filter: brightness(80%);
             translate: 0 0;
