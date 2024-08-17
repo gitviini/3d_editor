@@ -48,10 +48,10 @@
     <div class="actions">
         <details class="inputs">
             <summary>Importar modelo</summary>
-            <form action="" id="model">
-                <input type="text" placeholder="modelo (html)" required>
-                <button>carregar</button>
-            </form>
+            <div class="form">
+                <label for="file">Modelo (.txt)</label>
+                <input type="file" id="file" name="file" placeholder="modelo (html)" required>
+            </div>
         </details>
         <hr width="100%">
         <div class="buttons">
@@ -79,7 +79,7 @@
 
         </div>
     </details>
-    
+
     <div class="move_buttons">
         <div></div>
         <button class="arrow" id="up"><i class="bi bi-caret-up-fill"></i></button>
@@ -97,7 +97,7 @@
         <div class="face top preview">top</div>
 
         <div class="container-cube">
-            
+
         </div>
     </div>
 </body>

@@ -155,18 +155,22 @@ change_models.onclick = () => {
         })
 }
 
-model.onsubmit = (e) => {
-    e.preventDefault()
-
-    let res = confirm('Deseja importar esse modelo?')
+file.onchange = (e) => {
+    res = confirm('Deseja importar este modelo?')
 
     if (res) {
-        let new_model = model.children[0].value
+        filereader = new FileReader()
 
-        imports(new_model)
-        models.setAttribute('open', '')
-
-        model.children[0].value = ''
+        filereader.readAsText(file.files[0])
+        filereader.onload = (e) => {
+            console.log(e)
+            filereader.readAsText(file.files[0])
+            filereader.onload = e => {
+                let new_model = e.target.result
+                imports(new_model)
+                container_models.setAttribute('open', '')
+            }
+        }
     }
 }
 
