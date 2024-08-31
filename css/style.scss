@@ -13,7 +13,7 @@
 ::-webkit-scrollbar{
     width: 5px;
     height: 5px;
-    background-color: #fff;
+    background-color: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb{
@@ -44,7 +44,8 @@ body {
     --face-border: #0003;
     --color-preview: #0008;
     --scroll: #234;
-    --bg: #fff;
+    --bg: #f4f4f4;
+    background-color: var(--bg);
     overflow: hidden;
 }
 
@@ -188,6 +189,7 @@ label{
 
 input{
     width: 100%;
+    background-color: var(--bg);
 }
 
 button, label{
