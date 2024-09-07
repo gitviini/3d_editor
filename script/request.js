@@ -1,9 +1,11 @@
+let root = './script.php'
+
 async function get_models(){
     let form = new FormData()
 
     form.append('mode','get_models')
 
-    return fetch('/script.php',{
+    return fetch(root,{
         method:'POST',
         body:form,
     })
@@ -17,7 +19,7 @@ async function send_model(name='',content=''){
     form.append('name',name)
     form.append('content',content)
 
-    fetch('/script.php',{
+    fetch(root,{
         method:'POST',
         body:form,
     }).then(e=>{
@@ -36,7 +38,7 @@ async function delete_model(name=''){
     form.append('mode','delete_model')
     form.append('name',name)
 
-    fetch('/script.php',{
+    fetch(root,{
         method:'POST',
         body:form,
     }).then(e=>{

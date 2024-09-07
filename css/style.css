@@ -141,6 +141,13 @@ details[open] {
 .actions .buttons form {
   margin: 0;
 }
+.actions .buttons #content {
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: center;
+}
 .actions .inputs {
   width: 100%;
   height: auto;
@@ -196,6 +203,7 @@ label[type=file] {
 
 input {
   width: 100%;
+  max-width: 200px;
   background-color: var(--bg);
 }
 
