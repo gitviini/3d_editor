@@ -20,8 +20,8 @@ by: [@v.ii.n.i](https://instagram.com/v.ii.n.i)
 #### AÇÕES
 * Importar modelo pelo html;
 * Adicionar modelo com botão esquerdo do mouse;
-* Deletar modelo com botão direito do mouse;
 * Salvar/copiar modelo como arquivo (.txt);
+* Deletar modelo;
 * Adicionar bloco;
 * Deletar bloco;
 * Mover preview (quando ativo mostra nome das faces).
